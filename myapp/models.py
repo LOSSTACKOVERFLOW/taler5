@@ -1,12 +1,17 @@
 from django.db import models
+
 class Libro(models.Model):
     Titulo = models.CharField(max_length=200)
     Isbn=models.CharField(max_length=12)
     Calificación=models.IntegerField()
+    def __str__(self):
+        return self.Titulo
 
 class Autor(models.Model):
     Nombre = models.CharField(max_length=200)
     Apellidos = models.CharField(max_length=200)
+    def __str__(self):
+        return self.Nombre
 
 
 class Usuario(models.Model):
@@ -15,6 +20,8 @@ class Usuario(models.Model):
     Apellidos=models.CharField(max_length=200)
     Cedula=models.CharField(max_length=10)
     FechaNacimiento=models.DateField()
+    def __str__(self):
+        return self.Nombre
 
 class Usuario_Libro(models.Model):
     Correo = models.ForeignKey(Usuario, on_delete=models.CASCADE)
