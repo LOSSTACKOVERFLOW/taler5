@@ -1,0 +1,28 @@
+<h1 style="text-align:center">
+    Aplicacion para Consulta de Libros y Autores
+  </h1>
+  <div class="login">
+    <h2 class="login-header">Inicio de Sesion</h2>
+    <form [formGroup]="loginForm" class="login-container" (ngSubmit)="login()">
+  
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.email.errors }">
+        <input type="email" placeholder="Email" formControlName="email">
+      </p>
+  
+      <div *ngIf="isSubmitted && formControls.email.errors" class="help-block">
+        <div *ngIf="formControls.email.errors.required">Se requiere el email</div>
+      </div>
+  
+      <p [ngClass]="{ 'has-error': isSubmitted && formControls.password.errors }">
+        <input type="password" placeholder="Password" formControlName="password">
+      </p>
+  
+      <div *ngIf="isSubmitted && formControls.password.errors" class="help-block">
+        <div *ngIf="formControls.password.errors.required">La contrasena se requiere</div>
+      </div>
+  
+      <p>
+        <input type="submit" value="Inicia Sesion">
+      </p>
+    </form>
+  </div>

@@ -14,7 +14,7 @@ class Autor(models.Model):
         return self.Nombre
 
 
-class Usuario(models.Model):  CLASE USUARIO YA ESTA EN MODELOS DE USERAPI
+class Usuario(models.Model):   #CLASE USUARIO YA ESTA EN MODELOS DE USERAPI TIENEN QUE MODIFICAR
     Correo = models.CharField(max_length=200, primary_key=True)
     Nombre = models.CharField(max_length=200)
     Apellidos=models.CharField(max_length=200)

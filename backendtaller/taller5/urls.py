@@ -23,8 +23,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include('myapp.urls')),
     path('userapi/',include('userapi.urls')),
-    #  path(r'api-token-auth/', obtain_jwt_token),
-    # path(r'api-token-refresh/', refresh_jwt_token),
-    # path(r'api-token-verify/', verify_jwt_token),
+     path(r'api-token-auth/', obtain_jwt_token),
+     path(r'api-token-refresh/', refresh_jwt_token),
+     path(r'api-token-verify/', verify_jwt_token),
     path(r'', include('django.contrib.auth.urls')),
 ]
