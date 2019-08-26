@@ -3,7 +3,7 @@ from django.db import models
 class Libro(models.Model):
     Titulo = models.CharField(max_length=200)
     Isbn=models.CharField(max_length=12)
-    Calificación=models.IntegerField()
+    Calificacion=models.IntegerField()
     def __str__(self):
         return self.Titulo
 

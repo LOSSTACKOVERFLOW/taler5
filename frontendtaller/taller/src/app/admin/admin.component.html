@@ -1,14 +1,30 @@
 
+
+<div>
+    <p class="content-box-blue"> Bienvenido Usuario: {{user}}</p>
+    <p> Nombres: {{nombre}} </p>
+    <p> Apellidos: {{apellido}}</p>
+    <p> Cedula: {{cedula}} </p>
+    <p> Fecha de Nacimiento: {{fechanac}}</p>
+
+
+</div>
+
+<h2>Lista de libros</h2>
+<ul>
+  <li *ngFor="let libro of libros">
+    <h2 (click)="libroClicked(libro)">{{libro.Titulo}}</h2>
+  </li>
+</ul>
+
+<hr>
+Title <input type="text" [(ngModel)]="Titulo"/><br>
+Isbn <input type="text" [(ngModel)]="Isbn"><br>
+Cal <input type="number" [(ngModel)]="Calificacion"><br>
+
 <p>
     <button (click)="logout()">
       Logout
     </button>
   </p>
 
-<div>
-    <p> Bienvenido Usuario: {{user}}</p>
-    <p> Nombres: {{nombre}} </p>
-    <p> Apellidos: {{apellido}}</p>
-    <p> Cedula: {{cedula}} </p>
-    <p> Fecha de Nacimiento: {{fechanac}}</p>
-</div>

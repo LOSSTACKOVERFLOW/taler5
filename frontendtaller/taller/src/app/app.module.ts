@@ -8,10 +8,12 @@ import { AdminComponent } from './admin/admin.component';
 import { AuthService } from './servicios/servicios_auth/auth.service';
 import { AuthGuard } from './servicios/servicios_auth/auth.guard';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
-import { HttpClientModule, HttpClient } from '@angular/common/http'; 
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 import {CookieService} from 'ngx-cookie-service'
 import { TokenInterceptorService } from './servicios/servicios_auth/token-interceptor';
 import {TallerService} from './servicios/taller.service';
+
+import {from} from 'rxjs';
 
 
 
