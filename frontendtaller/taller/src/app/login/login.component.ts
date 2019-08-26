@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
         console.log(res);
         if (res.token != null) {
          console.log(res.token);
-         localStorage.setItem('login', JSON.stringify(res.token));
+        //  localStorage.setItem('login', JSON.stringify(res.token));
          localStorage.setItem('logindata', JSON.stringify(res));
          console.log(this.authService.getToken());
          this.router.navigate(['/admin']);

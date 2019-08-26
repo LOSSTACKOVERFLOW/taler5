@@ -11,6 +11,7 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HttpClientModule, HttpClient } from '@angular/common/http'; 
 import {CookieService} from 'ngx-cookie-service'
 import { TokenInterceptorService } from './servicios/servicios_auth/token-interceptor';
+import {TallerService} from './servicios/taller.service';
 
 
 
@@ -29,7 +30,7 @@ import { TokenInterceptorService } from './servicios/servicios_auth/token-interc
     HttpClientModule
   ],
   providers: [
-    AuthService, AuthGuard, HttpClientModule, CookieService, TokenInterceptorService,
+    AuthService, AuthGuard, HttpClientModule, CookieService, TokenInterceptorService, TallerService,
     {
 
         provide: HTTP_INTERCEPTORS,
