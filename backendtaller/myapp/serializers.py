@@ -12,10 +12,10 @@ class AutorSerializer(serializers.ModelSerializer):
         model = Autor
         fields='__all__'
 
-class UsuarioSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Usuario
-        fields='__all__'
+# class UsuarioSerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Usuario
+#         fields='__all__'
 
 class Usuario_LibroSerializer(serializers.ModelSerializer):
     class Meta:

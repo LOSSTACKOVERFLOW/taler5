@@ -1,4 +1,5 @@
 from django.db import models
+from userapi.models import UserProfile
 
 class Libro(models.Model):
     Titulo = models.CharField(max_length=200)
@@ -14,17 +15,17 @@ class Autor(models.Model):
         return self.Nombre
 
 
-class Usuario(models.Model):   #CLASE USUARIO YA ESTA EN MODELOS DE USERAPI TIENEN QUE MODIFICAR
-    Correo = models.CharField(max_length=200, primary_key=True)
-    Nombre = models.CharField(max_length=200)
-    Apellidos=models.CharField(max_length=200)
-    Cedula=models.CharField(max_length=10)
-    FechaNacimiento=models.DateField()
-    def __str__(self):
-        return self.Nombre
+# class Usuario(models.Model):   #CLASE USUARIO YA ESTA EN MODELOS DE USERAPI TIENEN QUE MODIFICAR
+#     Correo = models.CharField(max_length=200, primary_key=True)
+#     Nombre = models.CharField(max_length=200)
+#     Apellidos=models.CharField(max_length=200)
+#     Cedula=models.CharField(max_length=10)
+#     FechaNacimiento=models.DateField()
+#     def __str__(self):
+#         return self.Nombre
 
 class Usuario_Libro(models.Model):
-    Correo = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    Correo = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
     IdLibro = models.ForeignKey(Libro, on_delete=models.CASCADE)
 
 

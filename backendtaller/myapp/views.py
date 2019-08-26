@@ -15,10 +15,10 @@ class AutorViewSet(meviews.ModelViewSet):
     queryset = Autor.objects.all()
     serializer_class = AutorSerializer
 
-class UsuarioViewSet(meviews.ModelViewSet):
-    lookup = 'Nombre'
-    queryset = Usuario.objects.all()
-    serializer_class = UsuarioSerializer
+# class UsuarioViewSet(meviews.ModelViewSet):
+#     lookup = 'Nombre'
+#     queryset = Usuario.objects.all()
+#     serializer_class = UsuarioSerializer
 
 class Usuario_LibroViewSet(meviews.ModelViewSet):
     
