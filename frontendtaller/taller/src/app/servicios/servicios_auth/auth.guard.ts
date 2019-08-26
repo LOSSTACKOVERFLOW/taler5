@@ -11,7 +11,7 @@ export class AuthGuard implements CanActivate {
   canActivate(): boolean {
 
 
-    if (this.authService.isLoggedIn()) {
+    if (this.authService.isloggedIn()) {
       console.log('logeado');
       // tslint:disable-next-line: no-unused-expression
       this.router.navigate['/admin'];

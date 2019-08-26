@@ -7,44 +7,51 @@ import {CookieService} from 'ngx-cookie-service';
   providedIn: 'root'
 })
 export class AuthService {
-  private isLog = false;
+  private _isLog = false;
   private urlAPI = 'http://localhost:8000/api-token-auth/';
+  private urlAPI2 = 'http://localhost:8000/userapi/auth/login/';
 
 
   constructor(private http: HttpClient, private router: Router, private cookieService: CookieService) { }
 
-  estaLogeado() {
-    return this.isLog;
-   }
-  public login(userInfo: Usuario) {
-    this.isLog = true;
-    return this.http.post<any>(this.urlAPI , userInfo);
+  isLog(){
+    return this._isLog;
+  }
+   login(user:any){
+    localStorage.removeItem('logindata');
+    this._isLog=true;
+    return this.http.post<any>(this.urlAPI2, user)
   }
 
-  public isLoggedIn() {
-    return localStorage.getItem('login') !== null;
-
-  }
-  getToken() {
-    const data = this.getloginData();
-    console.log(data);
-    if (data != null) {
-      return data;
-    } else { return ''; }
+  logout(){
+     localStorage.removeItem('logindata');
+     this.router.navigate(['']);
+     return this.http.post<any>('http://localhost:8000/userapi/auth/logout/',null)
+   
   }
 
-  getloginData() {
-    if (this.isLoggedIn()) {
-      return JSON.parse(localStorage.getItem('login'));
+  getloginData(){
+    if(this.isloggedIn()){
+      console.log(localStorage.getItem('logindata'))
+      return JSON.parse(localStorage.getItem('logindata'));
     }
     return null;
   }
+  getToken() {
+    let data = this.getloginData();
+    console.log(data);
+    
+    if(data!=null){
+      console.log(data.token);
+      return data.token;
+    }
+      
+    else return '';
+  }
 
-  public logout() {
-    localStorage.removeItem('login');
-    localStorage.removeItem('logindata');
-    this.router.navigate(['']);
-    // this.cookieService.deleteAll();
-   // return this.http.post(this.urlAPI + 'logout/', '');
+ 
+
+  isloggedIn() {
+    return !!localStorage.getItem('logindata');    
   }
 }
