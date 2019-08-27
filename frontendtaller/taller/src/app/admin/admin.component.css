@@ -3,6 +3,7 @@ button{
     border-color: transparent;
     color: #fff;
     cursor: pointer;
+    text-align: center;
 }
 
 .content-box-blue,
@@ -16,7 +17,25 @@ overflow: hidden;
 padding: 20px;
 }
 
+.center{
+    font-family: "Comic Sans MS";
+    text-align: center;
+    font-weight: bold;
+}
+
+.fondo{
+    background: #afcde3;
+}
 .content-box-blue {
 background-color: #d8ecf7;
 border: 1px solid #afcde3;
 }
+.content-box-red {
+    background-color: #e22b53;
+    border: 1px solid #fa38b9;
+    }
+
+.content-box-blue2 {
+    background-color: #1f70e9;
+    border: 1px solid #afcde3;
+    }

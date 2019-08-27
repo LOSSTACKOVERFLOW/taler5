@@ -19,4 +19,9 @@ export class ApiService {
   getOneLibro(id): Observable<any>{
     return this.http.get(this.baseurl + '/api/Libro/'+ id + '/', { headers: this.httpHeaders});
   }
+  updateLibro(libro): Observable<any>{
+    const body = {Titulo: libro.Titulo, Isbn: libro.Isbn, Calificacion: libro.Calificacion };
+    return this.http.put(this.baseurl + '/api/Libro/'+ libro.id + '/', body,
+    { headers: this.httpHeaders});
+  }
 }

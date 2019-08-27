@@ -21,13 +21,11 @@ export class AdminComponent implements OnInit {
   perfil: any;
 
   libros = [{Titulo: 'HP'},{Titulo: 'HP2'}];
-  Titulo;
-  Isbn;
-  Cal;
-
-
+  libroElegido;
+ 
   constructor(private authService: AuthService, private router: Router, private service: TallerService, private api:ApiService) {
     this.getLibros();
+    this.libroElegido = {id: -1, Titulo: '', Isbn: '', Calificacion: 0 };
    }
 
 
@@ -35,6 +33,7 @@ export class AdminComponent implements OnInit {
     this.api.getAllLibros().subscribe(
       data => {
         this.libros = data;
+        
       },
       error =>{
         console.log(error);
@@ -44,7 +43,18 @@ export class AdminComponent implements OnInit {
   libroClicked = (libro) => {
     this.api.getOneLibro(libro.id).subscribe(
       data => {
-        console.log(data);
+        this.libroElegido = data;
+      },
+      error =>{
+        console.log(error);
+      }
+    );
+  }
+
+  updateLibro = () =>{
+    this.api.updateLibro(this.libroElegido).subscribe(
+      data => {
+        this.libroElegido = data;
       },
       error =>{
         console.log(error);
@@ -91,7 +101,6 @@ export class AdminComponent implements OnInit {
       }
     )
 
-    // this.cedula = this.perfil.profile.cedula;
 
   }
 
